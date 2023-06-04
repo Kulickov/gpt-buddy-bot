@@ -1,0 +1,5 @@
+{
+    "TELEGRAM_TOKEN": "your telegram token",
+    "OPENAI_KEY": "your openai token",
+    "AUTHORIZED_USERS": []
+}
