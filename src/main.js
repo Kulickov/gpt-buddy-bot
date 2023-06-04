@@ -19,7 +19,7 @@ bot.command("new", async (ctx) => {
         ctx.session = { messages: [] };
         await ctx.reply("Сессия обновлена. Жду новых запросов!");
     } else {
-        ctx.reply(code(config.get("MESSAGE_DENIED")));
+        ctx.reply(code("Уходи"));
     }
 });
 
@@ -28,7 +28,7 @@ bot.command("start", async (ctx) => {
         ctx.session = INITIAL_SESSION;
         await ctx.reply("Жду твои голосовые или текстовые сообщения...");
     } else {
-        ctx.reply(code(config.get("MESSAGE_DENIED")));
+        ctx.reply(code("Уходи"));
     }
 });
 
@@ -58,7 +58,7 @@ bot.on(message("voice"), async (ctx) => {
             console.log("Error while voice message", error.message);
         }
     } else {
-        ctx.reply(code(config.get("MESSAGE_DENIED")));
+        ctx.reply(code("Уходи"));
     }
 });
 
@@ -80,7 +80,7 @@ bot.on(message("text"), async (ctx) => {
             console.log("Error while text message", error.message);
         }
     } else {
-        ctx.reply(code(config.get("MESSAGE_DENIED")));
+        ctx.reply(code("Уходи"));
     }
 });
 
