@@ -1,9 +1,16 @@
 import { unlink } from "fs/promises";
+import config from "config";
 
-export async function removeFile(path) {
+async function removeFile(path) {
     try {
-        await unlink(path)
+        await unlink(path);
     } catch (e) {
-        console.log('Error while removing file', e.message)
+        console.log("Error while removing file", e.message);
     }
 }
+
+function authorizedUser(userName) {
+    return config.get("AUTHORIZED_USERS").includes(userName);
+}
+
+export { removeFile, authorizedUser };
